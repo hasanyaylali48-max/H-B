@@ -1,22 +1,24 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  color: white;
-  text-align: center;
+/* Animasyonlar */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.screen {
-  margin-top: 15%;
+@keyframes logoBounce {
+  0%   { transform: scale(0.8); opacity: 0; }
+  50%  { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
 }
 
-.hidden {
-  display: none;
+/* Hoşgeldiniz ekranı animasyonu */
+#welcome {
+  animation: fadeIn 1.5s ease-out;
 }
 
 .logo {
   width: 180px;
   margin-bottom: 20px;
+  animation: logoBounce 1.5s ease-out;
 }
 
 button {
@@ -28,12 +30,10 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.panel {
-  margin: 15px auto;
-  padding: 15px;
-  width: 60%;
-  background: rgba(255,255,255,0.1);
-  border-radius: 10px;
+button:hover {
+  transform: scale(1.1);
+  background: #f0f0f0;
 }
