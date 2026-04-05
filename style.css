@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+}
+
+.screen {
+  margin-top: 15%;
+}
+
+.hidden {
+  display: none;
+}
+
+.logo {
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: white;
+  color: #2575fc;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.panel {
+  margin: 15px auto;
+  padding: 15px;
+  width: 60%;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+}
