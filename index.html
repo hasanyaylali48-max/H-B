@@ -1,38 +1,9 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>H&B</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Hoşgeldiniz ekranı -->
-  <div id="welcome" class="screen">
+<div id="welcome" class="screen">
+  <div class="overlay">
     <img src="1775402448038.png" alt="H&B Logo" class="logo animate-bounce">
     <h1 class="animate-fade">Hoşgeldiniz 🚀</h1>
-
-    <!-- Günün sözü -->
     <p id="quote" class="animate-fade"></p>
-
-    <!-- Tarih ve saat -->
-    <p id="datetime" class="animate-fade"></p>
-
+    <p id="datetime" class="animate-slide"></p>
     <button onclick="goToPanels()" class="animate-slide">Devam Et</button>
   </div>
-
-  <!-- Paneller ekranı -->
-  <div id="panels" class="screen hidden">
-    <h2>H&B Panelleri</h2>
-    <div class="panel">🕒 Mola Takibi</div>
-    <div class="panel">⚽ Canlı Maç Skorları</div>
-    <div class="panel">📰 Marmaris/Dünya Haberleri</div>
-    <div class="panel">💬 Mini Sosyal Medya</div>
-    <div class="panel">✈️🚢📹 Marmaris Bilgileri</div>
-    <div class="panel">👥 Begüm & Hasan Shift</div>
-    <div class="panel">🤖 Yapay Zeka Asistanı</div>
-  </div>
-
-  <script src="app.js"></script>
-</body>
-</html>
+</div>
