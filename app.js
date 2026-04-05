@@ -1,5 +1,5 @@
 function speakWelcome() {
-  const msg = new SpeechSynthesisUtterance("Hoşgeldiniz, H ve B uygulamasına giriş yapıyorsunuz.");
+  const msg = new SpeechSynthesisUtterance("Hoşgeldiniz Hasan, H ve B uygulamasına giriş yapıyorsunuz.");
   msg.lang = "tr-TR";
   msg.pitch = 1.2;
   msg.rate = 1;
@@ -9,7 +9,14 @@ function speakWelcome() {
 function goToPanels() {
   speakWelcome();
   document.getElementById("welcome").classList.add("hidden");
-  document.getElementById("panels").classList.remove("hidden");
+  const panels = document.getElementById("panels");
+  panels.classList.remove("hidden");
+
+  // Paneller sırayla fade-in
+  const panelItems = panels.querySelectorAll(".panel");
+  panelItems.forEach((panel, i) => {
+    panel.style.animationDelay = `${i * 0.3}s`;
+  });
 }
 
 // Günün sözü listesi
@@ -19,8 +26,6 @@ const quotes = [
   "Hayallerini gerçekleştirmek için harekete geç.",
   "Zorluklar, seni daha güçlü yapar."
 ];
-
-// Rastgele günün sözü seç
 document.getElementById("quote").innerText =
   quotes[Math.floor(Math.random() * quotes.length)];
 
@@ -34,3 +39,18 @@ function updateDateTime() {
 }
 updateDateTime();
 setInterval(updateDateTime, 1000);
+
+// Progress bar: günün ilerleyişi
+function updateProgressBar() {
+  const now = new Date();
+  const percent = ((now.getHours() * 60 + now.getMinutes()) / 1440) * 100;
+  document.getElementById("progress-bar").style.width = percent + "%";
+}
+updateProgressBar();
+setInterval(updateProgressBar, 60000);
+
+// Hava durumu (örnek veri)
+document.getElementById("weather").innerText = "🌤 Marmaris: 22°C, Hafif Rüzgar";
+
+// Kişisel selamlama
+document.getElementById("greeting").innerText = "Hoşgeldin Hasan 🚀";
