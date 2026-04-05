@@ -12,14 +12,13 @@ function goToPanels() {
   const panels = document.getElementById("panels");
   panels.classList.remove("hidden");
 
-  // Paneller sırayla fade-in
   const panelItems = panels.querySelectorAll(".panel");
   panelItems.forEach((panel, i) => {
     panel.style.animationDelay = `${i * 0.3}s`;
   });
 }
 
-// Günün sözü listesi
+// Günün sözü
 const quotes = [
   "Başarı, hazırlık ile fırsatın buluştuğu noktadır.",
   "Bugün yapabileceğini yarına bırakma.",
@@ -29,28 +28,9 @@ const quotes = [
 document.getElementById("quote").innerText =
   quotes[Math.floor(Math.random() * quotes.length)];
 
-// Tarih ve saat göster
+// Tarih ve saat
 function updateDateTime() {
   const now = new Date();
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const dateStr = now.toLocaleDateString('tr-TR', options);
-  const timeStr = now.toLocaleTimeString('tr-TR');
-  document.getElementById("datetime").innerText = dateStr + " - " + timeStr;
-}
-updateDateTime();
-setInterval(updateDateTime, 1000);
-
-// Progress bar: günün ilerleyişi
-function updateProgressBar() {
-  const now = new Date();
-  const percent = ((now.getHours() * 60 + now.getMinutes()) / 1440) * 100;
-  document.getElementById("progress-bar").style.width = percent + "%";
-}
-updateProgressBar();
-setInterval(updateProgressBar, 60000);
-
-// Hava durumu (örnek veri)
-document.getElementById("weather").innerText = "🌤 Marmaris: 22°C, Hafif Rüzgar";
-
-// Kişisel selamlama
-document.getElementById("greeting").innerText = "Hoşgeldin Hasan 🚀";
+  const timeStr =
