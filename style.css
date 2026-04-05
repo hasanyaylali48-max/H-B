@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background: radial-gradient(circle at center, #0f2027, #203a43, #2c5364);
   color: white;
   text-align: center;
   height: 100vh;
@@ -11,75 +11,112 @@ body {
 }
 
 .overlay {
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.5);
   padding: 40px;
   border-radius: 15px;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
 }
 
-.hidden {
-  display: none;
-}
+.hidden { display: none; }
 
 .logo {
   width: 180px;
   margin-bottom: 20px;
 }
 
-h1 {
-  font-weight: 600;
-  margin-bottom: 15px;
+/* Logo reveal */
+@keyframes reveal {
+  from { filter: blur(20px); opacity: 0; }
+  to { filter: blur(0); opacity: 1; }
 }
+.animate-reveal { animation: reveal 2s ease forwards; }
 
-#quote {
-  font-style: italic;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-#datetime {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-/* Animasyonlar */
+/* Fade */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .animate-fade { animation: fadeIn 2s ease forwards; }
 
-@keyframes bounce {
-  0%,20%,50%,80%,100% { transform: translateY(0); }
-  40% { transform: translateY(-30px); }
-  60% { transform: translateY(-15px); }
+/* Typing effect */
+.typing {
+  display: inline-block;
+  border-right: 2px solid white;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
 }
-.animate-bounce { animation: bounce 2s; }
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+@keyframes blink { 50% { border-color: transparent; } }
 
-@keyframes slideIn {
-  from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+/* Digital clock style */
+.digital-clock {
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin-top: 10px;
 }
-.animate-slide { animation: slideIn 1.5s ease forwards; }
 
-button {
+/* Glow + ripple button */
+.glow-button {
+  position: relative;
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 12px 24px;
   font-size: 16px;
-  background: white;
-  color: #2575fc;
+  background: linear-gradient(90deg, #2575fc, #6a11cb);
+  color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 0 10px #2575fc;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
-
-button:hover {
+.glow-button:hover {
+  box-shadow: 0 0 20px #6a11cb;
   transform: scale(1.1);
-  background: #f0f0f0;
+}
+.glow-button::after {
+  content: "";
+  position: absolute;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.5s, opacity 1s;
+}
+.glow-button:active::after {
+  transform: translate(-50%, -50%) scale(2);
+  opacity: 1;
 }
 
+/* Progress bar */
+#progress-container {
+  width: 80%;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  margin: 15px auto;
+}
+#progress-bar {
+  height: 15px;
+  width: 0;
+  background: linear-gradient(90deg, #2575fc, #6a11cb);
+  border-radius: 10px;
+  transition: width 1s ease;
+}
+
+/* Panel animation */
 .panel {
   margin: 15px auto;
   padding: 15px;
   width: 60%;
   background: rgba(255,255,255,0.1);
   border-radius: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: panelFade 1s forwards;
+}
+@keyframes panelFade {
+  to { opacity: 1; transform: translateY(0); }
 }
