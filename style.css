@@ -1,24 +1,28 @@
-/* Animasyonlar */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
+/* Fade-in ve bounce animasyonları */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes logoBounce {
-  0%   { transform: scale(0.8); opacity: 0; }
-  50%  { transform: scale(1.1); opacity: 1; }
+@keyframes bounceIn {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.2); opacity: 1; }
   100% { transform: scale(1); }
 }
 
-/* Hoşgeldiniz ekranı animasyonu */
+/* Hoşgeldiniz ekranı */
 #welcome {
-  animation: fadeIn 1.5s ease-out;
+  animation: fadeInUp 1.5s ease-out forwards;
 }
 
 .logo {
   width: 180px;
   margin-bottom: 20px;
-  animation: logoBounce 1.5s ease-out;
+  animation: bounceIn 1.2s ease-out forwards;
+}
+
+h1 {
+  animation: fadeInUp 2s ease-out forwards;
 }
 
 button {
@@ -31,6 +35,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.3s ease, background 0.3s ease;
+  animation: fadeInUp 2.5s ease-out forwards;
 }
 
 button:hover {
