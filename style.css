@@ -1,3 +1,18 @@
+/* Arka plan animasyonu */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+  animation: bgMove 8s infinite alternate;
+}
+
+@keyframes bgMove {
+  from { background-position: left top; }
+  to { background-position: right bottom; }
+}
+
 /* Fade-in ve bounce animasyonları */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(50px); }
@@ -18,7 +33,7 @@
 .logo {
   width: 180px;
   margin-bottom: 20px;
-  animation: bounceIn 1.2s ease-out forwards;
+  animation: bounceIn 1.5s ease-out forwards;
 }
 
 h1 {
