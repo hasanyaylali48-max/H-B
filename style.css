@@ -8,6 +8,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+
+#particles {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
 }
 
 .overlay {
@@ -15,27 +22,20 @@ body {
   padding: 40px;
   border-radius: 15px;
   backdrop-filter: blur(8px);
+  position: relative;
+  z-index: 1;
 }
 
 .hidden { display: none; }
 
-.logo {
-  width: 180px;
-  margin-bottom: 20px;
-}
+.logo { width: 180px; margin-bottom: 20px; }
 
-/* Logo reveal */
-@keyframes reveal {
-  from { filter: blur(20px); opacity: 0; }
-  to { filter: blur(0); opacity: 1; }
-}
+@keyframes reveal { from { filter: blur(20px); opacity: 0; } to { filter: blur(0); opacity: 1; } }
 .animate-reveal { animation: reveal 2s ease forwards; }
 
-/* Fade */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .animate-fade { animation: fadeIn 2s ease forwards; }
 
-/* Typing effect */
 .typing {
   display: inline-block;
   border-right: 2px solid white;
@@ -46,7 +46,6 @@ body {
 @keyframes typing { from { width: 0; } to { width: 100%; } }
 @keyframes blink { 50% { border-color: transparent; } }
 
-/* Digital clock style */
 .digital-clock {
   font-family: 'Courier New', monospace;
   font-size: 18px;
@@ -54,7 +53,6 @@ body {
   margin-top: 10px;
 }
 
-/* Glow + ripple button */
 .glow-button {
   position: relative;
   margin-top: 20px;
@@ -69,29 +67,20 @@ body {
   transition: all 0.3s ease;
   overflow: hidden;
 }
-.glow-button:hover {
-  box-shadow: 0 0 20px #6a11cb;
-  transform: scale(1.1);
-}
+.glow-button:hover { box-shadow: 0 0 20px #6a11cb; transform: scale(1.1); }
 .glow-button::after {
   content: "";
   position: absolute;
   background: rgba(255,255,255,0.5);
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  top: 50%;
-  left: 50%;
+  width: 100px; height: 100px;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%) scale(0);
   opacity: 0;
   transition: transform 0.5s, opacity 1s;
 }
-.glow-button:active::after {
-  transform: translate(-50%, -50%) scale(2);
-  opacity: 1;
-}
+.glow-button:active::after { transform: translate(-50%, -50%) scale(2); opacity: 1; }
 
-/* Progress bar */
 #progress-container {
   width: 80%;
   background: rgba(255,255,255,0.2);
@@ -106,7 +95,6 @@ body {
   transition: width 1s ease;
 }
 
-/* Panel animation */
 .panel {
   margin: 15px auto;
   padding: 15px;
@@ -117,6 +105,4 @@ body {
   transform: translateY(20px);
   animation: panelFade 1s forwards;
 }
-@keyframes panelFade {
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes panelFade { to { opacity: 1; transform: translateY(0); } }
