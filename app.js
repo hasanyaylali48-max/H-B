@@ -7,13 +7,11 @@ function speakWelcome() {
   window.speechSynthesis.speak(msg);
 }
 
-// Sayfa açıldığında otomatik sesli mesaj
-window.onload = () => {
-  speakWelcome();
-};
-
 // Panellere geçiş
 function goToPanels() {
+  // Sesli asistanı butona basınca çalıştır
+  speakWelcome();
+
   document.getElementById("welcome").classList.add("hidden");
   document.getElementById("panels").classList.remove("hidden");
 }
