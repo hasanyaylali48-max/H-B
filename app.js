@@ -33,36 +33,32 @@ function updateDateTime() {
   const now = new Date();
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const dateStr = now.toLocaleDateString('tr-TR', options);
-  const timeStr =
-// Basit partikül animasyonu
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particlesArray = [];
-for (let i = 0; i < 100; i++) {
-  particlesArray.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    size: Math.random() * 3 + 1,
-    dx: (Math.random() - 0.5) * 2,
-    dy: (Math.random() - 0.5) * 2
-  });
+  const timeStr = now.toLocaleTimeString('tr-TR');
+  document.getElementById("datetime").innerText = dateStr + " - " + timeStr;
 }
+updateDateTime();
+setInterval(updateDateTime, 1000);
 
-function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particlesArray.forEach(p => {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(255,255,255,0.7)";
-    ctx.fill();
-    p.x += p.dx;
-    p.y += p.dy;
-    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-  });
-  requestAnimationFrame(animateParticles);
+// Progress bar: günün ilerleyişi
+function updateProgressBar() {
+  const now = new Date();
+  const percent = ((now.getHours() * 60 + now.getMinutes()) / 1440) * 100;
+  document.getElementById("progress-bar").style.width = percent + "%";
 }
-animateParticles();
+updateProgressBar();
+setInterval(updateProgressBar, 60000);
+
+// Hava durumu (örnek veri)
+document.getElementById("weather").innerText = "🌤 Marmaris: 22°C, Hafif Rüzgar";
+
+// Kişisel selamlama
+document.getElementById("greeting").innerText = "Hoşgeldin Hasan 🚀";
+
+// Örnek maç skorlarıTamam Hasan 🙌 Şimdi sana **tamamen düzenli, baştan sona net birleştirilmiş kod** veriyorum. Bu sürümde:  
+- Giriş ekranı: logo, günün sözü, tarih/saat, hava durumu, motivasyon barı.  
+- Paneller ekranı: ayrı bölümler → ⚽ Canlı Maç Skorları ve 📰 Marmaris Haberleri listeleniyor.  
+- Animasyonlar, glow/ripple buton, sesli asistan, panel fade-in hepsi entegre.  
+
+---
+
+## 📂 Dosya Yapısı
