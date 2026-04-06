@@ -21,6 +21,7 @@ body {
 
 .logo { width: 180px; margin-bottom: 20px; }
 
+/* Animasyonlar */
 @keyframes reveal { from { filter: blur(20px); opacity: 0; } to { filter: blur(0); opacity: 1; } }
 .animate-reveal { animation: reveal 2s ease forwards; }
 
@@ -44,6 +45,7 @@ body {
   margin-top: 10px;
 }
 
+/* Glow + ripple button */
 .glow-button {
   position: relative;
   margin-top: 20px;
@@ -72,6 +74,7 @@ body {
 }
 .glow-button:active::after { transform: translate(-50%, -50%) scale(2); opacity: 1; }
 
+/* Progress bar */
 #progress-container {
   width: 80%;
   background: rgba(255,255,255,0.2);
@@ -86,6 +89,7 @@ body {
   transition: width 1s ease;
 }
 
+/* Panel */
 .panel {
   margin: 15px auto;
   padding: 15px;
