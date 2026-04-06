@@ -11,7 +11,6 @@
   <!-- Hoşgeldiniz ekranı -->
   <div id="welcome" class="screen">
     <div class="overlay">
-      <canvas id="particles"></canvas>
       <img src="1775402448038.png" alt="H&B Logo" class="logo animate-reveal">
       <h1 id="greeting" class="animate-fade">Hoşgeldiniz 🚀</h1>
       <p id="quote" class="typing"></p>
@@ -28,8 +27,17 @@
   <div id="panels" class="screen hidden">
     <h2>H&B Panelleri</h2>
     <div class="panel">🕒 Mola Takibi</div>
-    <div class="panel">⚽ Canlı Maç Skorları</div>
-    <div class="panel">📰 Marmaris/Dünya Haberleri</div>
+    
+    <div class="panel">
+      <h3>⚽ Canlı Maç Skorları</h3>
+      <ul id="scores"></ul>
+    </div>
+    
+    <div class="panel">
+      <h3>📰 Marmaris Haberleri</h3>
+      <ul id="news"></ul>
+    </div>
+    
     <div class="panel">💬 Mini Sosyal Medya</div>
     <div class="panel">✈️🚢📹 Marmaris Bilgileri</div>
     <div class="panel">👥 Begüm & Hasan Shift</div>
@@ -39,4 +47,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-<canvas id="particles"></canvas>
