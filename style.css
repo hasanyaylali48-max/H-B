@@ -8,13 +8,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-}
-
-#particles {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
 }
 
 .overlay {
@@ -22,8 +15,6 @@ body {
   padding: 40px;
   border-radius: 15px;
   backdrop-filter: blur(8px);
-  position: relative;
-  z-index: 1;
 }
 
 .hidden { display: none; }
@@ -106,13 +97,3 @@ body {
   animation: panelFade 1s forwards;
 }
 @keyframes panelFade { to { opacity: 1; transform: translateY(0); } }
-#particles {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  z-index: 0;
-}
-.overlay {
-  position: relative;
-  z-index: 1;
-}
